@@ -1,0 +1,15 @@
+[package]
+name = "users"
+version = "0.1.0"
+authors = ["Milesq <wmilosz88@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+web_server = "0.3.4"
+cookie = "0.13.3"
+dotenv = "0.15.0"
+bincode = "1.2.1"
+serde_urlencoded = "0.6.1"
+bcrypt = "0.7.0"
+log = "0.4.8"
+simplelog = "0.7.6"

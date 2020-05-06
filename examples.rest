@@ -1,0 +1,17 @@
+POST /users/register HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+    "user": "Milosz",
+    "pass": "zaq1@WSX"
+}
+###
+POST /users/login HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+    "user": "Milosz",
+    "pass": "zaq1@WSX"
+}
