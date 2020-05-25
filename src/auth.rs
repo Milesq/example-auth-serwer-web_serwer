@@ -7,7 +7,10 @@ use sha2::Sha256;
 use std::{collections::HashMap, sync::Arc, thread};
 use web_server::{HttpCode, Request, Response};
 
+mod auth_required;
 mod users;
+
+pub use auth_required::auth_required;
 
 macro_rules! json_err {
     ($msg: tt) => {

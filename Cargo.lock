@@ -835,9 +835,9 @@ checksum = "a91c2916119c17a8e316507afaaa2dd94b47646048014bbdf6bef098c1bb58ad"
 
 [[package]]
 name = "web_server"
-version = "0.3.4"
+version = "0.3.41"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "06fcfc9f27203d7cedff3341ced41fee18948a379853ec3de8de30fb79e6df9d"
+checksum = "a5483373590dce13ec23d25cf43cf19170c743a3b672c6dc2822086490139ea9"
 
 [[package]]
 name = "winapi"

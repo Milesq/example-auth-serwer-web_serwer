@@ -5,7 +5,7 @@ authors = ["Milesq <wmilosz88@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-web_server = "0.3.4"
+web_server = "0.3.41"
 cookie = "0.13.3"
 dotenv = "0.15.0"
 bincode = "1.2.1"
