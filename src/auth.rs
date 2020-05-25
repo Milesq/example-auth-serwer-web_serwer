@@ -59,7 +59,8 @@ pub fn register(req: Request, mut res: Response) -> Response {
         None
     });
 
-    res.set_body("JWT")
+    res.set_body("JWT");
+    res
 }
 
 pub fn login(_req: Request, res: Response) -> Response {
