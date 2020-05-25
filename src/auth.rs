@@ -1,5 +1,6 @@
 use bcrypt::{hash, DEFAULT_COST};
 use hmac::{Hmac, Mac};
+use json::object;
 use jwt::SignWithKey;
 use serde::{Deserialize, Serialize};
 use sha2::Sha256;
@@ -10,7 +11,9 @@ mod register;
 
 macro_rules! json_err {
     ($msg: tt) => {
-        concat!("{\"err\": \"", $msg, "\"}")
+        object! {
+            err: $msg
+        }.dump().as_str()
     };
 }
 
@@ -61,8 +64,6 @@ pub fn register(req: Request, mut res: Response) -> Response {
 
         None
     });
-
-    use json::object;
 
     (object! {
         "data": {
