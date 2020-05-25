@@ -10,7 +10,6 @@ cookie = "0.13.3"
 dotenv = "0.15.0"
 bincode = "1.2.1"
 serde_urlencoded = "0.6.1"
-serde = { version = "1.0", features = ["derive"] }
 bcrypt = "0.7.0"
 log = "0.4.8"
 simplelog = "0.7.6"

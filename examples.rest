@@ -9,3 +9,6 @@ Host: localhost:8080
 Content-Type: application/json
 
 name=Milosz&pass=zaq1@WSX
+###
+GET /posts HTTP/1.1
+Host: localhost:8080

@@ -1,6 +1,17 @@
-use std::fs::OpenOptions;
+use std::fs::{File, OpenOptions};
 
-type Users = Vec<(String, String)>;
+use super::Users;
+
+pub fn get_users() -> Users {
+    if let Ok(file) = File::open(&crate::users_file()) {
+        bincode::deserialize_from::<_, Users>(file).unwrap_or_else(|_| {
+            log::error!("Database format is incorrect");
+            panic!();
+        })
+    } else {
+        Vec::new()
+    }
+}
 
 pub fn save_user(name: String, pass: String) -> bincode::Result<()> {
     let file = OpenOptions::new()
