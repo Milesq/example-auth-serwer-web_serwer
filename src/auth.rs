@@ -1,5 +1,8 @@
 use bcrypt::{hash, DEFAULT_COST};
+use hmac::{Hmac, Mac};
+use jwt::SignWithKey;
 use serde::{Deserialize, Serialize};
+use sha2::Sha256;
 use std::{collections::HashMap, sync::Arc, thread};
 use web_server::{HttpCode, Request, Response};
 
@@ -59,10 +62,25 @@ pub fn register(req: Request, mut res: Response) -> Response {
         None
     });
 
-    res.set_body("JWT");
-    res
+    use json::object;
+
+    (object! {
+        "data": {
+            "token": token(user)
+        }
+    })
+    .dump()
+    .into()
 }
 
 pub fn login(_req: Request, res: Response) -> Response {
     res
+}
+
+pub fn token(user: &str) -> String {
+    let key: Hmac<Sha256> = Hmac::new_varkey(crate::private_key().as_bytes()).unwrap();
+    let mut claims = HashMap::new();
+    claims.insert("user", user);
+
+    claims.sign_with_key(&key).unwrap()
 }

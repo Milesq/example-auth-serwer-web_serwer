@@ -14,3 +14,7 @@ serde = { version = "1.0", features = ["derive"] }
 bcrypt = "0.7.0"
 log = "0.4.8"
 simplelog = "0.7.6"
+jwt = "0.6.0"
+sha2 = "0.8.2"
+hmac = "0.7.1"
+json = "0.12.4"
