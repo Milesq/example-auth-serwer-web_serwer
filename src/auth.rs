@@ -79,8 +79,14 @@ pub fn register(req: Request, mut res: Response) -> Response {
     })
     .dump();
 
-    res.set_header("Set-Cookie", &Cookie::new("token", jwt_token).to_string())
-        .set_body(&token_body);
+    res.set_header(
+        "Set-Cookie",
+        &Cookie::build("token", jwt_token)
+            .path("/")
+            .finish()
+            .to_string(),
+    )
+    .set_body(&token_body);
     res
 }
 
@@ -124,8 +130,14 @@ pub fn login(req: Request, mut res: Response) -> Response {
         })
         .dump();
 
-        res.set_header("Set-Cookie", &Cookie::new("token", jwt_token).to_string())
-            .set_body(&token_body);
+        res.set_header(
+            "Set-Cookie",
+            &Cookie::build("token", jwt_token)
+                .path("/")
+                .finish()
+                .to_string(),
+        )
+        .set_body(&token_body);
     } else {
         res.set_body(json_err!("Password is incorrect"));
     }
